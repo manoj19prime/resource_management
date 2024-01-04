@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+new-project.access_qualification_type,access_qualification_type,new-project.model_qualification_type,base.group_user,1,1,1,1
+new-project.access_job_position,access_job_position,new-project.model_job_position,base.group_user,1,1,1,1
+new-project.access_district_name,access_district_name,new-project.model_district_name,base.group_user,1,1,1,1
+new-project.access_mailing_list_wizard,access_mailing_list_wizard,new-project.model_mailing_list_wizard,base.group_user,1,1,1,1
+new-project.access_mailing_trace_wizard,access_mailing_trace_wizard,new-project.model_mailing_trace_wizard,base.group_user,1,1,1,1
+new-project.access_project_task_assign,access_project_task_assign,new-project.model_project_task_assign,base.group_user,1,1,1,1
+

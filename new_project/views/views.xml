@@ -1,0 +1,176 @@
+<odoo>
+
+    <record id="view_employee_education_details_page" model="ir.ui.view">
+        <field name="name">hr.employee.emp.details</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="job_position_ids" widget="many2many_tags"/>
+                <field name="partner_as"/>
+                <field name="vat" placeholder="e.g. BE0477472701" readonly="parent_id"/>
+                new-project.access_mailing_trace_wizard,access_mailing_trace_wizard,new-project.model_mailing_trace_wizard,base.group_user,1,1,1,1
+                new-project.access_project_task_assign,access_project_task_assign,new-project.model_project_task_assign,base.group_user,1,1,1,1
+            </xpath>
+            <xpath expr="//page[@name='personal_information']//field[@name='bank_account_id']" position="after">
+                <field name="aadhar"/>
+                <field name="pan_no"/>
+                <field name="native_place"/>
+
+            </xpath>
+            <xpath expr="//page[@name='personal_information']//field[@name='private_email']" position="after">
+                <field name="district_name"/>
+
+            </xpath>
+            <xpath expr="//page[@name='public']//field[@name='work_location_id']" position="after">
+                <field name="availability"/>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']//field[@name='user_id']" position="after">
+                <field name="employee_status" widget="radio"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='hr_settings']" position="after">
+                <page name="education_details" string="Education Details">
+                    <!--                     <field name="background_emp" string="Employee Background" widget="section_and_note_one2many"-->
+                    <!--                           mode="tree">-->
+                    <div id="o_work_employee_container"
+                         class="d-lg-flex"> <!-- These two div are used to position org_chart -->
+                        <div id="o_work_employee_main" class="flex-grow-1">
+                            <group string="Details">
+                                <field name="certificate_level"/>
+                                <field name="qua_type"/>
+                                <field name="type"/>
+                                <field name="spec"/>
+                                <field name="hig_degree"/>
+
+                            </group>
+                        </div>
+                    </div>
+                    <!--                     </field>-->
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_search_employee" model="ir.ui.view">
+        <field name="name">inherit.search.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_team']" position="after">
+                <filter string="Job Positions" name="job_position_ids" domain="[]"
+                        context="{'search_default_job_position_ids': 1}"/>
+            </xpath>
+            <!--            <xpath expr="//filter[@name='my_team']" position="after">-->
+            <!--                <filter string="Job Positions" name="job_position_ids" domain="[]"-->
+            <!--                        context="{'search_default_job_position_ids': 1}"/>-->
+            <!--                <separator string="or" colspan="4" options="{}"/>-->
+            <!--                <field name="job_position_ids" widget="many2many_tags" options="{'no_create_edit': True}"-->
+            <!--                       placeholder="Select Job Positions"/>-->
+            <!--            </xpath>-->
+            <xpath expr="//filter[@name='my_team']" position="after">
+                <filter string="Availability" name="availability" domain="[]"
+                        context="{'search_default_availability': 1}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_employee_email" model="ir.ui.view">
+        <field name="name">view.employee.email</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="open_create_mailing_list_wizard" string="Creating Mail List" type="object"
+                        class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- views/create_mailing_list_wizard.xml -->
+    <record id="view_create_mailing_list_wizard_form" model="ir.ui.view">
+        <field name="name">mailing.list.wizard.form</field>
+        <field name="model">mailing.list.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="selected_contacts_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button name="create_mailing_list" string="Create Mailing List" type="object" class="oe_highlight"/>
+                    <!--                        <button string="Cancel" class="oe_link" special="cancel"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_mail_approve_email" model="ir.ui.view">
+        <field name="name">view.approve.email</field>
+        <field name="model">mailing.trace</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_trace_view_tree_mail"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='links_click_datetime']" position="after">
+                <field name="mail_status"/>
+                <field name="name"/>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="open_assignee_wizard" string="Creating Assignee" type="object"
+                            class="oe_highlight"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_create_mailing_trace_wizard_form" model="ir.ui.view">
+        <field name="name">mailing.trace.wizard.form</field>
+        <field name="model">mailing.trace.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="project_name" widget="many2one_avatar_user"/>
+                    <field name="task" widget="many2one_avatar_user"/>
+                    <field name="selected_contacts_ids" widget="many2many_tags" string="Emails"/>
+                </group>
+                <footer>
+                    <button name="create_assignee_list" string="Create Assignee List" type="object"
+                            class="oe_highlight"/>
+                    <!--                        <button string="Cancel" class="oe_link" special="cancel"/>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_task_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.view.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+
+
+            </xpath>
+            <xpath expr="//page[@name='extra_info']" position="after">
+                <page name="assignee_page" string="Assignee">
+
+                    <field name="employ_assign_ids">
+                        <tree editable="bottom">
+                            <field name="employee_assign"/>
+                        </tree>
+                    </field>
+                </page>
+
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

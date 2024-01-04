@@ -1,0 +1,446 @@
+<odoo>
+    <data>
+        <record id="website_menu_register" model="website.menu">
+            <field name="name">Partner with Us</field>
+            <field name="url">/page/partner/register</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">76</field>
+        </record>
+        <!--        <template id="theme_template">-->
+        <!--            <t t-call="website.layout">-->
+        <!--                <button formaction="/page/partner/register">Accept</button>-->
+        <!--            </t>-->
+        <!--        </template>-->
+        <template id="theme_event_templatess">
+            <p>Dear [Recipient's Name],</p>
+
+            <p>I trust this message finds you well. My name is [Your Name], and I am reaching out to you on behalf of
+                [Your
+                Organization/Company Name]. We are currently seeking dedicated and reliable individuals to join our team
+                as
+                part-time invigilators/supervisors for upcoming examinations.
+            </p>
+
+            <p>
+                <strong>Position:</strong>
+                Part-Time Invigilator/Supervisor
+                <br/>
+                <strong>Location:</strong>
+
+                <br/>
+                <strong>Duration:</strong>
+
+            </p>
+
+            <p>
+                <strong>Responsibilities:</strong>
+            </p>
+            <ul>
+                <li>Ensure a secure and controlled testing environment.</li>
+                <li>Verify the identity of candidates and distribute exam materials.</li>
+                <li>Monitor and enforce examination policies and procedures.</li>
+                <li>Address any issues or concerns that may arise during the examination.</li>
+                <li>Collaborate with our team to maintain a professional and efficient testing environment.</li>
+            </ul>
+
+            <p>
+                <strong>Qualifications:</strong>
+            </p>
+            <ul>
+                <li>High attention to detail and a commitment to maintaining exam integrity.</li>
+                <li>Strong communication and interpersonal skills.</li>
+                <li>Punctuality and reliability are essential.</li>
+                <li>Ability to handle stressful situations calmly and effectively.</li>
+                <li>Previous invigilation or similar experience is preferred.</li>
+            </ul>
+
+            <p>If you are interested in this part-time opportunity, please reply to this email with your updated resume
+                and
+                a brief cover letter outlining your relevant experience and availability. The deadline for applications
+                is
+                [Insert Deadline].
+            </p>
+
+            <p>We believe that your skills and experience make you an excellent candidate for this role, and we look
+                forward
+                to the possibility of having you join our team. Should you have any questions or require further
+                information, please feel free to contact me at [Your Phone Number] or [Your Email Address].
+            </p>
+
+            <p>Thank you for considering this opportunity, and we look forward to receiving your application.</p>
+            <!--            <a t-attf-href="/page/partner/register/" style="padding-left:140px;width:50%">-->
+            <!--                <button type="submit">Approve</button>-->
+            <!--            </a>-->
+            <!--            <a t-attf-href="/web/accept/response/" style="padding-left:200px;width:300px">-->
+            <!--                <button>Refuse</button>-->
+            <!--            </a>-->
+            <a t-attf-href="/web/accept/response/approve" style="padding-left:140px;width:50%">
+                <button type="submit">Accept</button>
+            </a>
+            <a t-attf-href="/web/accept/response/refuse" style="padding-left:200px;width:300px">
+                <button>Refuse</button>
+            </a>
+
+            <p>Best regards,
+                <br/>
+                [Your Full Name]
+                <br/>
+                [Your Job Title]
+                <br/>
+                [Your Organization/Company Name]
+                <br/>
+                [Your Contact Information]
+            </p>
+        </template>
+
+        <template id="email_designer_snippets" inherit_id="mass_mailing.email_designer_snippets">
+            <xpath expr="//div[@id='email_designer_themes']" position="inside">
+                <div title="Custom Template">
+                    <t t-call="new-project.theme_event_templatess"/>
+                </div>
+            </xpath>
+        </template>
+
+
+        <template id="sucessfull_email_sent" name="E-mail_sent_sucessfull">
+            <t t-call="website.layout">
+                <section>
+                    <section class="heading section">
+                        <div class="dess-container"
+                             style="border-radius:15px;padding: 20px; display: flex;background-image:url('/new-project/static/neww__exam.jpg');background-repeat:no-repeat;background-size:cover;max-width: 100%; height: auto;border-radius:15px;">
+                            <div style="display:block; text-align:center;">
+                                <img src="/new-project/static/neww__exam.jpg" alt="image Description"
+                                     style="max-width: 100%; height: auto; margin: 0 auto;padding-left:300px;"/>
+
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+            </t>
+        </template>
+
+
+        <template id="content_spl_signup">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                             data-snippet="s_title" data-scroll-background-ratio="1">
+                        <span class="s_parallax_bg oe_img_bg"
+                              style="background-position: 50% 0;"/>
+                        <div class="o_we_bg_filter bg-black-50"/>
+                        <div class="container">
+                            <h1>Be a partner</h1>
+                        </div>
+                    </section>
+                    <section class="s_text_block pt40 pb40 o_colored_level " data-snippet="s_text_block">
+                        <div class="container s_allow_columns">
+                            <div class="row">
+                                <div class="col-lg-8 mt-4 mt-lg-0">
+                                    <!--                                <p>-->
+                                    <!--                                    Add messages about content Specialist-->
+                                    <!--                                </p>-->
+                                    <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                                        <div class="container">
+                                            <sheet>
+                                                <form action="/content_spl/created/" method="post"
+                                                      enctype="multipart/form-data" class="o_mark_required"
+                                                      data-mark="*" data-model_name="" data-success-page="">
+                                                    <input type="hidden" name="csrf_token"
+                                                           t-att-value="request.csrf_token()"/>
+                                                    <div class="s_website_form_rows row s_col_no_bgcolor">
+                                                        <!--                                   <div class="form-group col-12 s_website_form_field s_website_form_required" data-type="char" data-name="Field">-->
+                                                        <!--                                       <h3><center><strong>Registration Request Form</strong></center></h3>-->
+                                                        <!--                                   </div>-->
+
+                                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                                             data-type="char" data-name="Field">
+                                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                       style="width: 200px" for="studio1">
+                                                                    <span class="s_website_form_label_content">Partner
+                                                                        as
+                                                                    </span>
+                                                                    <span class="s_website_form_mark">*</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <!--                                                <select name="requested_as" t-attf-class="form-control s_website_form_input">-->
+                                                                    <!--                                                       <option type="radio" t-att-value="content_specialist">Content Specialist</option>-->
+                                                                    <!--                                                       <option type="radio" t-att-value="reseller">Reseller(Currently Inactive)</option>-->
+                                                                    <!--                                                </select>-->
+                                                                    <input type="radio" id="invigilator"
+                                                                           name="requested_as"
+                                                                           value="invigilator">
+                                                                        <label for="invigilator">Invigilator
+                                                                        </label>
+                                                                    </input>
+                                                                    <br></br>
+                                                                    <input type="radio" id="reseller"
+                                                                           name="requested_as" value="reseller">
+                                                                        <label for="reseller">Reseller</label>
+                                                                    </input>
+                                                                    <br></br>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                                             data-type="char" data-name="Field">
+                                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                       style="width: 200px" for="studio1">
+                                                                    <span class="s_website_form_label_content">Your
+                                                                        Name
+                                                                    </span>
+                                                                    <span class="s_website_form_mark">*</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input id="name" type="text"
+                                                                           class="form-control s_website_form_input"
+                                                                           name="name"
+                                                                           required="1"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                                             data-type="char" data-name="Field">
+                                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                                       style="width: 200px" for="studio1">
+                                                                    <span class="s_website_form_label_content">Email
+                                                                    </span>
+                                                                    <span class="s_website_form_mark">*</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input id="email" type="text"
+                                                                           class="form-control s_website_form_input"
+                                                                           name="email"
+                                                                           required="1"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-12 s_website_form_submit"
+                                                             data-name="Submit Button">
+                                                            <div style="width: 200px;" class="s_website_form_label"/>
+                                                            <button type="submit" class="btn btn-primary">Sign Up
+                                                            </button>
+                                                        </div>
+                                                        <!--                                   <div class="form-group col-4 s_website_form_submit" data-name="Back Button">-->
+                                                        <!--                                       <div style="width: 200px;" class="s_website_form_label"/>-->
+                                                        <!--                                       <button type="submit">-->
+                                                        <!--                                           <a href="/my/home"><i class="fa fa-repeat"/> Back </a></button>-->
+                                                        <!--                                   </div>-->
+                                                    </div>
+                                                </form>
+                                            </sheet>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!--                                <div class="col-lg-4 mt-4 mt-lg-0">-->
+                                <!--                                    <ul class="list-unstyled mb-0 pl-2">-->
+                                <!--                                        <li>Prime Minds Consulting Pvt Ltd.,</li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <i class="fa fa-map-marker fa-fw mr-2"/>-->
+                                <!--                                            <span class="o_force_ltr">19, 9th Cross Rd, Malleswaram, Bengaluru</span>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <i class="fa fa-phone fa-fw mr-2"/>-->
+                                <!--                                            <span class="o_force_ltr">+91-80-3500136</span>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <i class="fa fa-1x fa-fw fa-envelope mr-2"/>-->
+                                <!--                                            <span>support@primemindsconsulting.com</span>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </div>-->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="content_spl_created">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                             data-snippet="s_title" data-scroll-background-ratio="1">
+                        <span class="s_parallax_bg oe_img_bg"
+                              style="background-position: 50% 0;"/>
+                        <div class="o_we_bg_filter bg-black-50"/>
+                        <div class="container">
+                            <h1>Be a partner</h1>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="reg_email_template" model="mail.template">
+            <field name="name">Registration Email</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="subject">Welcome to the Resource Management</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p style="font-size: 13px;">
+                        Hi<t t-out="object.name or ''"/>,
+                        <br></br>
+                        <br></br>
+                        Resource management is essential in maintaining social and legal license to operate on a
+                        local, national and international scale.
+                        Usually, there are increasing levels of legal requirements needed to support project approval
+                        from local, national and international bodies.
+                        Thus, we would like to thank you for reaching out to us.
+                        We appreciate your interest in our services.
+                        This is to confirm that we've successfully received your enquiry about the compliance management
+                        system for your company.
+                        <br></br>
+                        For smooth functioning please register yourself and get our best services.
+                        <!--                         <br></br>-->
+                        <!--                         To Register your account, you can use the following link:-->
+                        <br></br>
+                        <div style="margin: 16px 0px 16px 0px;">
+                            <a t-attf-href="/reg/form?name={{ object.name }}&amp;id_ram={{object.id }}"
+                               style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                Register Here
+                            </a>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        Thanks,
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <template id="invigilator_register_form">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <form>
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                                 data-snippet="s_title" data-scroll-background-ratio="1">
+                            <p>Invigilator Registration Form</p>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">Name :
+                                </label>
+                                <!--                                <t t-foreach="vals" t-as="one" >-->
+                                <!--                                    <h1><t t-esc="name1"/></h1>-->
+                                <!--                                    <h1><t t-esc="id_ram"/></h1>-->
+
+                                <input type="text" name="name"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="Name" required="True"
+                                       t-att-value="name"
+                                />
+                                <input type="number" id="myInputaa" name='id_ram' style="display: none;"
+                                       t-att-value="id_ram"/>
+                                <!--                                </t>-->
+                            </div>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">Mobile
+                                    Number :
+                                </label>
+                                <input type="text" name="mobile_phone"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="Number" required="True"/>
+                            </div>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">
+                                    Specilazation
+                                </label>
+                                <input type="text" name="spec"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="specialization" required="True"/>
+                            </div>
+
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">Certificate
+                                    Level:
+                                </label>
+                                <select name="certificate_level"
+                                        style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                        required="True">
+                                    <option value="post_graduation">Post Graduation</option>
+                                    <option value="graduation">Graduation</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="twelfth_or_equivalent">12th or Equivalent</option>
+                                    <option value="tenth_or_equivalent">10th or Equivalent</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">Type :
+                                </label>
+                                <select name="type"
+                                        style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                        required="True">
+                                    <option value="academic">Academic</option>
+                                    <option value="technical">Technical</option>
+                                    <option value="professional">Professional</option>
+                                    <option value="certificate">Certificate</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">
+                                    Qualification Type:
+                                </label>
+                                <input type="text" name="qua_type"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="Qualification Type" required="True"/>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary" formaction="/reg/form/submit/">Register
+                            </button>
+
+                        </section>
+                    </form>
+                </div>
+            </t>
+        </template>
+
+        <template id="reseller_register_form">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+
+                    <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                             data-snippet="s_title" data-scroll-background-ratio="1">
+                        <form>
+                            <p>Reseller Registration Form</p>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">Name :
+                                </label>
+                                <!--                                <t t-foreach="vals" t-as="one" >-->
+                                <!--                                    <h1><t t-esc="name1"/></h1>-->
+                                <!--                                    <h1><t t-esc="id_ram"/></h1>-->
+
+                                <input type="text" name="name"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="Name" required="True"
+                                       t-att-value="name"
+                                />
+                                <input type="number" id="myInputaa" name='id_ram' style="display: none;"
+                                       t-att-value="id_ram"/>
+                                <!--                                </t>-->
+                            </div>
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">
+                                    GST NO:
+                                </label>
+                                <input type="text" name="vat"
+                                       style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                       placeholder="GST NO." required="True"/>
+                            </div>
+                            <button type="submit" class="btn btn-primary" formaction="/reg/form/submit/">Register
+                            </button>
+
+
+                        </form>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>
