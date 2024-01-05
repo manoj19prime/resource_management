@@ -285,16 +285,17 @@
                         Hi<t t-out="object.name or ''"/>,
                         <br></br>
                         <br></br>
-                        Resource management is essential in maintaining social and legal license to operate on a
-                        local, national and international scale.
-                        Usually, there are increasing levels of legal requirements needed to support project approval
-                        from local, national and international bodies.
-                        Thus, we would like to thank you for reaching out to us.
-                        We appreciate your interest in our services.
-                        This is to confirm that we've successfully received your enquiry about the compliance management
-                        system for your company.
+                        Kindly click the below register button for the registration process.
+                        <!--                        Resource management is essential in maintaining social and legal license to operate on a-->
+                        <!--                        local, national and international scale.-->
+                        <!--                        Usually, there are increasing levels of legal requirements needed to support project approval-->
+                        <!--                        from local, national and international bodies.-->
+                        <!--                        Thus, we would like to thank you for reaching out to us.-->
+                        <!--                        We appreciate your interest in our services.-->
+                        <!--                        This is to confirm that we've successfully received your enquiry about the compliance management-->
+                        <!--                        system for your company.-->
                         <br></br>
-                        For smooth functioning please register yourself and get our best services.
+                        <!--                        For smooth functioning please register yourself and get our best services.-->
                         <!--                         <br></br>-->
                         <!--                         To Register your account, you can use the following link:-->
                         <br></br>
@@ -365,6 +366,24 @@
                                     <option value="diploma">Diploma</option>
                                     <option value="twelfth_or_equivalent">12th or Equivalent</option>
                                     <option value="tenth_or_equivalent">10th or Equivalent</option>
+                                </select>
+                            </div>
+                            
+
+                            <div class="form-group" style="margin-top:40px;">
+                                <label style="width:30%;font-size:20px; color: #0a0500;font-family: Roboto;">
+                                    Availability
+                                    Level:
+                                </label>
+                                <select name="availability"
+                                        style="height:35px;border: 0.5px solid black ;border-radius: 15px;"
+                                        required="True">
+                                    <option value="full_time">Full Time</option>
+                                    <option value="part_time">Part Time</option>
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="weekends">Weekends</option>
+                                    <option value="holidays">Holidays</option>
+
                                 </select>
                             </div>
                             <div class="form-group" style="margin-top:40px;">
